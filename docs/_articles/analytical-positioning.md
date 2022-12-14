@@ -164,8 +164,8 @@ It should be noted, however, that there may be other ways of choosing $$t_M$$,
 based on the initial conditions of the problem, that have the same time-reversal property.
 
 Let's conclude this section by rewriting the result in the case $$\ini{T} = \fin{T} = T/2$$.
-We get $$\vini{a} = \frac{\mathbf{2V}}{T} + 8\frac{\mathbf{R}}{T^2}$$
-and $$\vfin{a} = \frac{\mathbf{2V}}{T} - 8\frac{\mathbf{R}}{T^2}$$, or, in terms
+We get $$\vini{a} = \frac{\mathbf{2V}}{T} + \frac{\mathbf{8R}}{T^2}$$
+and $$\vfin{a} = \frac{\mathbf{2V}}{T} - \frac{\mathbf{8R}}{T^2}$$, or, in terms
 of the original positions and velocities,
 
 $$

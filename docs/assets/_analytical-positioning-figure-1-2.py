@@ -95,7 +95,7 @@ def generate(with_mid=True):
 
     if with_mid:
       w << color_mid << Line(vector_tk, origin1, p4.p, arrows.triangle)
-      w << Text(font, 0.5 * (p4.p + origin1), "r_F", Offset(-0.3, 0.5))
+      w << Text(font, 0.5 * (p4.p + origin1), "r_M", Offset(-0.3, 0.5))
 
     w << color_fin << Line(vector_tk, origin1, p5.p, arrows.triangle)
     w << Circle(origin1, point_tk)
