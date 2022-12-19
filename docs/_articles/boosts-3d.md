@@ -40,11 +40,11 @@ The idea behind this simple derivation is to look at what happens in the directi
 the velocity $$\vvv$$ and the directions orthogonal to it. A Lorentz boost along $$\vvv$$ is going
 to only affect the "parallel direction", as described by the one-dimensional formulas above.
 
-Let's then start by introducing two projectors, $$P_\perp$$ and $$P_\parallel$$.
+Let's then start by introducing two projection functions, $$P_\perp$$ and $$P_\parallel$$.
 Given an arbitrary vector $$\vvw$$, $$P_\perp \vvw$$ is the component of the vector orthogonal to
 $$\vvv$$, while $$P_\parallel \vvw$$ is the component parallel to it. We thus have
 $$\vvv \cdot P_\perp \vvw = 0$$ and $$\vvw = P_\perp \vvw + P_\parallel \vvw$$.
-We can easily write down the two projectors as follows:
+We can easily write down $$P_\perp$$ and $$P_\parallel$$ as follows:
 
 $$
 \begin{equation}
@@ -71,7 +71,7 @@ Summing $$P_\perp \vvw'$$ and $$P_\parallel \vvw'$$ we get $$\vvw'$$:
 
 $$
 \begin{equation*}
-\vvw' = P_\perp \vvw + \gamma P_\parallel \vvw - \frac{\vvv}{c} \, w_0.
+\vvw' = P_\perp \vvw + \gamma P_\parallel \vvw - \gamma \frac{\vvv}{c} \, w_0.
 \end{equation*}
 $$
 
