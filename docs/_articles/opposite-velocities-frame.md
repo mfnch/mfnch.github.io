@@ -2,6 +2,7 @@
 layout: post
 title:  "Frame where two velocities are the opposite of each other"
 categories: SR
+date: 2022-12-19 16:03:00
 usemathjax: true
 ---
 
