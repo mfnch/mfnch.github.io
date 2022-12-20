@@ -8,27 +8,25 @@ usemathjax: true
 
 # Introduction
 
-In the relativistic game I am writing every physical object is a
-[Born-rigid body](http://en.wikipedia.org/wiki/Born_rigidity) which moves along a piece-wise
-[hyperbolic trajectory](https://en.wikipedia.org/wiki/Hyperbolic_trajectory).
-More could be said about this choice. I will reserve this for a different post.
-Let's continue and say that hyperbolic trajectories arise when a particle (or body)
-experiences anacceleration which is constant in time. This is different than what happens
-for a classical particle, whose trajectory is a parabola rather than an hyperbola.
-
 In games it is often necessary to move objects to a desired position. Imagine a ghost chasing
-Pacman or wanting to return to the ghosts' home. One way this can be achieved is by changing
-the velocity or applied force frame by frame, so that it points toward the destination at all
-times. A possibility that provides more flexibility is using Bezier curves or splines for the
-trajectories.
+Pacman or wanting to return to the ghosts' home. This can be done in many different ways.
+For example, the velocity (or applied force) can be updated frame by frame, so that it points
+towards the destination at all times. Another possibility is to use Bezier curves or splines,
+if the trajectories are known beforehand.
 
-In the case of Special Relativity, it is desirable to move the bodies "physically", i.e.
-applying forces rather than directly changing the velocities. Moving bodies "physically" is
-less likely to lead to physics that violates causality or depends on the choosen reference frame.
-The problem of how to move a particle by applying successive constant forces is therefore
-an interesting problem to solve. In this article, I am going to pose the problem more rigorously
-and provide a classical solution to it. The relativistic case is considerably more complicated,
-but I hope that the classical solution can guide me towards the relativistic solution.
+A primitive like the cubic Bezier curve can be very useful, except that it is not quite
+fit for purpose in a Special Relativity context. This post is the first step in **trying to find
+a curve primitive that works in Special Relativity**. Such a primitive would make it easier to
+construct complex paths that are sane from a relativistic standpoint.
+
+In the relativistic video game I am developing, every physical object moves along a piece-wise
+[hyperbolic trajectory](https://en.wikipedia.org/wiki/Hyperbolic_trajectory).
+Hyperbolic motion is what you get when you apply a constant force and thus a uniform acceleration
+in Special Relativity. It is the relativistic counterpart of parabolic motion
+in classical mechanics and is probably the simplest kind of motion after rectilinear motion.
+Despite this, hyperbolic motion is hard to handle mathematically. The main source of pain
+comes from the $$\gamma = 1/\sqrt{1 - v^2/c^2}$$ factors and the square root in them.
+Prepare for a bit of a ride!
 
 # Problem statement
 We have a point-like particle in 3D space with known position, $$\mathbf{r}_{\mathrm{I}}$$, and
@@ -152,7 +150,7 @@ $$
 
 where we have introduced $$T = \ini{T} + \fin{T} = \fin{t} - \ini{t}$$.
 
-We found a different solution for each different choice of $$t_M$$.
+These equations represent different solutions for different choices of $$t_M$$.
 One possible choice of $$t_M$$ is $$(\ini{t} + \fin{t})/2$$,
 i.e. the mid-point between $$\ini{t}$$ and $$\fin{t}$$,
 which corresponds to $$\ini{T} = \fin{T} = T/2$$.
@@ -179,3 +177,22 @@ $$
 \end{eqnarray*}
 }
 $$
+
+Some observations.
+
+- By construction, the two curves that compose the trajectory meet at time
+$$t = t_M$$ and thus at position
+$$\vmid{r} = (\vini{r} + \vfin{r})/2 + (\vfin{v} - \vini{v})(\fin{t} - \ini{t})/8$$
+and velocity
+$$\vmid{v} = 2(\vfin{r} - \vini{r})/(\fin{t} - \ini{t}) - (\vini{v} + \vfin{v})/2$$.
+In the special reference frame where initial position and velocity are opposite
+of the final ones, $$\vmid{r}' = -\mathbf{V}T/2$$ and $$\vmid{v}' = 2\mathbf{R}/T$$.
+- A reference frame that sees $$\vmid{r}$$ in its origin with $$\vmid{v} = 0$$,
+also sees all the motion taking place in two straight segments.
+We discuss this more in depth in the next section (WIP).
+- Increasing $$T \rightarrow sT$$, $$s > 1$$ leads to a wider curve.
+The same can be achieved by decreasing both the initial and final velocities,
+$$\vini{v},\,\mathbf{v}_F \rightarrow \vini{v}/s,\,\mathbf{v}_F/s$$.
+The choice of $$\ini{t}$$ and $$\fin{t}$$ are not crucial to determine the shape of the curve.
+Of course, they are crucial for determining the time parametrisation of the
+curve.

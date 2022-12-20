@@ -51,9 +51,9 @@ $$
 \end{equation}
 $$
 
-brings us in the reference frame where the positions and the velocities of the two particles are
-the opposite of each other. In particular, applying this transformation to $$\vvr_1$$, $$\vvv_1$$,
-$$\vvr_2$$, and $$\vvv_2$$, we get:
+brings us in the reference frame where the positions and the velocities of the particle at the two
+instants $$t_1$$ and $$t_2$$ are the opposite of each other. In particular, applying this
+transformation to $$\vvr_1$$, $$\vvv_1$$, $$\vvr_2$$, and $$\vvv_2$$, we get:
 
 $$
 \begin{eqnarray*}
