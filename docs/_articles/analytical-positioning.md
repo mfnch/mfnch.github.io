@@ -21,10 +21,10 @@ construct complex paths that are sane from a relativistic standpoint.
 
 In the relativistic video game I am developing, every physical object moves along a piece-wise
 [hyperbolic trajectory](https://en.wikipedia.org/wiki/Hyperbolic_trajectory).
-Hyperbolic motion is what you get when you apply a constant force and thus a uniform acceleration
-in Special Relativity. It is the relativistic counterpart of parabolic motion
-in classical mechanics and is probably the simplest kind of motion after rectilinear motion.
-Despite this, hyperbolic motion is hard to handle mathematically. The main source of pain
+Hyperbolic motion is what you get when you uniformly accelerate a body in Special Relativity.
+It is the relativistic counterpart of parabolic motion in classical mechanics and is probably
+the simplest kind of motion after rectilinear motion.
+Despite this, hyperbolic motion is mathematically hard to handle. The main source of pain
 comes from the $$\gamma = 1/\sqrt{1 - v^2/c^2}$$ factors and the square root in them.
 Prepare for a bit of a ride!
 
