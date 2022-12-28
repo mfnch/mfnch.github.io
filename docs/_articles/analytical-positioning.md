@@ -192,7 +192,7 @@ also sees all the motion taking place in two straight segments.
 We discuss this more in depth in the next section (WIP).
 - Increasing $$T \rightarrow sT$$, $$s > 1$$ leads to a wider curve.
 The same can be achieved by simultaneously increasing both the initial and final velocities,
-$$\vini{v},\,\mathbf{v}_F \rightarrow \vini{v}/s,\,\mathbf{v}_F/s$$.
+$$\vini{v},\,\mathbf{v}_F \rightarrow s\vini{v},\,s\mathbf{v}_F$$.
 The choice of $$\ini{t}$$ and $$\fin{t}$$ are not crucial to determine the shape of the curve.
 Of course, they are crucial for determining the time parametrisation of the
 curve.
