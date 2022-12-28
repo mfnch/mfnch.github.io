@@ -171,9 +171,9 @@ $$
 \bbox[lightyellow, 10px, border: 2px solid orange]{
 \begin{eqnarray*}
   \vini{a} & = &  -\frac{3\vini{v} + \vfin{v}}{\fin{t} - \ini{t}}
-             - 4 \frac{\vini{r} - \vfin{r}}{(\fin{t} - \ini{t})^2} \\
+             + 4 \frac{\vfin{r} - \vini{r}}{(\fin{t} - \ini{t})^2} \\
   \vfin{a} & = &  \frac{\vini{v} + 3\vfin{v}}{\fin{t} - \ini{t}}
-             + 4 \frac{\vini{r} - \vfin{r}}{(\fin{t} - \ini{t})^2}
+             - 4 \frac{\vfin{r} - \vini{r}}{(\fin{t} - \ini{t})^2}
 \end{eqnarray*}
 }
 $$
@@ -187,11 +187,11 @@ and velocity
 $$\vmid{v} = 2(\vfin{r} - \vini{r})/(\fin{t} - \ini{t}) - (\vini{v} + \vfin{v})/2$$.
 In the special reference frame where initial position and velocity are opposite
 of the final ones, $$\vmid{r}' = -\mathbf{V}T/2$$ and $$\vmid{v}' = 2\mathbf{R}/T$$.
-- A reference frame that sees $$\vmid{r}$$ in its origin with $$\vmid{v} = 0$$,
+- A reference frame that sees $$\vmid{r}$$ not moving, i.e. $$\vmid{v} = 0$$,
 also sees all the motion taking place in two straight segments.
 We discuss this more in depth in the next section (WIP).
 - Increasing $$T \rightarrow sT$$, $$s > 1$$ leads to a wider curve.
-The same can be achieved by decreasing both the initial and final velocities,
+The same can be achieved by simultaneously increasing both the initial and final velocities,
 $$\vini{v},\,\mathbf{v}_F \rightarrow \vini{v}/s,\,\mathbf{v}_F/s$$.
 The choice of $$\ini{t}$$ and $$\fin{t}$$ are not crucial to determine the shape of the curve.
 Of course, they are crucial for determining the time parametrisation of the
