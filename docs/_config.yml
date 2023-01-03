@@ -19,11 +19,23 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Relativistic Game
+tagline: Developing a relativistic platformer video game
 #email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Developing a relativistic platformer video game
+  Site about the creation of a video game that gives players
+  an intuitive understanding of Einstein's Theory of Special Relativity
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://relativisticgame.net"
+twitter:
+  username: relativisticg
+  card: summary
+social:
+  name "Relativistic Game"
+  links:
+    - https://twitter.com/relativisticg
+    - https://www.patreon.com/relativisticgame
+    - https://www.youtube.com/@relativisticgame
+    - https://www.tiktok.com/@relativisticgame
 twitter_username: relativisticg
 youtube_username: relativisticgame
 #github_username:
@@ -32,6 +44,7 @@ youtube_username: relativisticgame
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 collections:
   articles:
