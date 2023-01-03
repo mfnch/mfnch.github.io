@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Hyperbolic motion in one dimension"
+title:  "Derivation of hyperbolic motion in one spatial dimension"
 categories: SR
 date: 2023-01-03 10:40:00
 usemathjax: true
@@ -14,7 +14,7 @@ $$
 \newcommand{\deriv} [2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
 $$
 
-# Derivation of the hyperbolic motion formula in one dimension
+# Derivation
 
 In this article we derive the formulas for hyperbolic motion in one dimension.
 Let's start by considering a point-like particle and choose an inertial frame $$\mathcal{R}$$
