@@ -2,7 +2,7 @@
 layout: post
 title:  "Analytical positioning of bodies (WIP)"
 categories: SR
-date: 2022-12-19 17:56:00
+date: 2023-01-03 10:41:00
 usemathjax: true
 ---
 
@@ -178,8 +178,13 @@ $$
 }
 $$
 
-Some observations.
+Some observations:
 
+- The solution we found is just a couple of parabolas stiched together.
+  In three or more dimensions, these two parabolas are not guaranteed to be coplanar.
+- A reference frame that sees $$\vmid{r}$$ not moving, i.e. $$\vmid{v} = 0$$,
+also sees all the motion taking place in two straight segments.
+The velocity for parabolic motion clearly is never zero, unless the parabola is degenerate.
 - By construction, the two curves that compose the trajectory meet at time
 $$t = t_M$$ and thus at position
 $$\vmid{r} = (\vini{r} + \vfin{r})/2 + (\vfin{v} - \vini{v})(\fin{t} - \ini{t})/8$$
@@ -187,9 +192,6 @@ and velocity
 $$\vmid{v} = 2(\vfin{r} - \vini{r})/(\fin{t} - \ini{t}) - (\vini{v} + \vfin{v})/2$$.
 In the special reference frame where initial position and velocity are opposite
 of the final ones, $$\vmid{r}' = -\mathbf{V}T/2$$ and $$\vmid{v}' = 2\mathbf{R}/T$$.
-- A reference frame that sees $$\vmid{r}$$ not moving, i.e. $$\vmid{v} = 0$$,
-also sees all the motion taking place in two straight segments.
-We discuss this more in depth in the next section (WIP).
 - Increasing $$T \rightarrow sT$$, $$s > 1$$ leads to a wider curve.
 The same can be achieved by simultaneously increasing both the initial and final velocities,
 $$\vini{v},\,\mathbf{v}_F \rightarrow s\vini{v},\,s\mathbf{v}_F$$.
