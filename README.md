@@ -1,1 +1,1 @@
-# Simple repository to test GitHub Pages
+# Sources for relativisticgame.net
