@@ -198,3 +198,7 @@ $$\vini{v},\,\mathbf{v}_F \rightarrow s\vini{v},\,s\mathbf{v}_F$$.
 The choice of $$\ini{t}$$ and $$\fin{t}$$ are not crucial to determine the shape of the curve.
 Of course, they are crucial for determining the time parametrisation of the
 curve.
+
+The video below shows some of the features of the solution derived in this page.
+
+{% include youtube.html id='uSgLO3lU2Qs' %}
