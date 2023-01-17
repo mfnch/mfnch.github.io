@@ -98,9 +98,49 @@ For $$\vP \rightarrow c$$, we get $$\betaP \rightarrow 1$$ and
 thus $$C = \sqrt{1 - \betaT^2}/(1 - \betaT)$$, or, equivalently:
 
 $$
+\bbox[lightyellow, 10px, border: 2px solid orange]{
+\begin{equation*}
 C = \sqrt{\frac{1 + \betaT}{1 - \betaT}}.
+\end{equation*}
+}
 $$
 
 In the video I posted, the train is travelling at 94% the speed of light, or, more precisely,
 the speed at which the train contracts to 1/3 of its rest length.
 At this speed, the factor $$C$$ is calculated as $$C \approx 5.83$$.
+
+It is interesting that this factor, $$C$$, is considerably larger than the train contraction
+factor, 3. In fact, for $$\betaT \rightarrow 1$$, we have
+
+$$
+C \approx \frac{\sqrt{2}}{\sqrt{1 - \betaT}},
+$$
+
+and
+
+$$
+\gamma_{\mathrm{T}} \equiv \frac{1}{F}
+= \frac{1}{\sqrt{1 - \betaT^2}} \approx \frac{1}{\sqrt{2}\sqrt{1 - \betaT}},
+$$
+
+which gives:
+
+$$
+C \approx 2 \gamma_{\mathrm{T}} \quad (\mathrm{for\,}\betaT \approx 1)
+$$
+
+# Conclusion
+
+In agreement to what is shown in the video, the width of a light pulse dilates more and more
+as the observer increases its velocity in the direction of the pulse.
+For the conditions chosen in the video, the dilation should be roughly a factor 6.
+
+The dilation shown in the video is clearly larger than that. Counting the pixels
+in the two scenes I get $$C \approx 15.6$$. I believe this discrepancy comes from the way
+the pulse is triggered. As can be spotted by looking at the video, the collision mechanism I
+implemented in the game is currently not very accurate and not perfectly covariant, meaning that
+it depends on the particular choice of reference frame.
+I plan to improve this aspect of the game. I will then rerun the simulation and compare
+the measured value for $$C$$ with the expected value, 5.83.
+The two should match closely, I believe.
+I'll update this post when this happens, so watch this space!
