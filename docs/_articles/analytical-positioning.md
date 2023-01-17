@@ -2,7 +2,7 @@
 layout: post
 title:  "Analytical positioning of bodies (WIP)"
 categories: SR
-date: 2023-01-03 10:41:00
+date: 2023-01-17 10:41:00
 usemathjax: true
 ---
 
