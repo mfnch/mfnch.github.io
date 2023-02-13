@@ -2,7 +2,7 @@
 layout: post
 title:  "Derivation of hyperbolic motion in one spatial dimension"
 categories: SR
-date: 2023-01-03 10:40:00
+date: 2023-02-13 10:40:00
 usemathjax: true
 ---
 
@@ -28,7 +28,7 @@ When we say that the particle is uniformly accelerated, we mean that
 the particle accelerates uniformly from one inertial frame to the next.
 This means that, if we consider an arbitrary point $$\mathrm{Q}\in\insR^4$$
 of the particle trajectory and we express the trajectory in an intertial
-frame tangent to $$\mathrm{Q}\in\insR^4$$ we expect to always get the
+frame tangent to the trajectory in $$\mathrm{Q}$$ we expect to always get the
 same expression, independently from the choice of $$\mathrm{Q}$$.
 
 So let us return to the reference frame $$\mathcal{R}$$ and let us choose
@@ -111,7 +111,7 @@ $$
 T_0 = \frac{\gamma_0 u_0}{c}.
 $$
 
-From \eqref{eq:sin_theta} we can compute $$\gamma = (1 - (u_0/c)^2)^{-1/2}$$:
+From \eqref{eq:sin_theta} we can compute $$\gamma = (1 - (u/c)^2)^{-1/2}$$:
 
 $$
 \gamma = \left[1 - \frac{(T + T_0)^2}{1 + (T + T_0)^2} \right]^{-1/2}
