@@ -12,6 +12,16 @@ $$
 \DeclareMathOperator{\sinhc}{sinhc}
 \newcommand{\insR}{\mathbb{R}}
 \newcommand{\deriv} [2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\gammai}{\gamma_{\mathrm{i}}}
+\newcommand{\thetai}{\theta_{\mathrm{i}}}
+\newcommand{\tf}{t_{\mathrm{f}}}
+\newcommand{\Ti}{T_{\mathrm{i}}}
+\newcommand{\Tf}{T_{\mathrm{f}}}
+\newcommand{\omegai}{\omega_{\mathrm{i}}}
+\newcommand{\ui}{u_{\mathrm{i}}}
+\newcommand{\gammaf}{\gamma_{\mathrm{f}}}
+\newcommand{\omegaf}{\omega_{\mathrm{f}}}
+\newcommand{\uf}{u_{\mathrm{f}}}
 $$
 
 # Derivation
@@ -89,49 +99,50 @@ $$
 which is easily integrated to:
 
 $$
-\int_{\theta_0}^{\theta}
+\int_{\thetai}^{\theta}
   \frac{\mathrm{d}\Theta}{\cos^2 \Theta} =
-\tan \theta - \tan \theta_0 = T.
+\tan \theta - \tan \thetai = T.
 $$
 
 Substituting $$\sin \theta = u/c$$, we have:
 
 $$
 \begin{equation}
-\sin \theta = \frac{u}{c} = \frac{T + T_0}{\sqrt{1 + (T + T_0)^2}},
+\sin \theta = \frac{u}{c} = \frac{T + \Ti}{\sqrt{1 + (T + \Ti)^2}},
 \label{eq:sin_theta}
 \end{equation}
 $$
 
-where $$T_0 = \tan \theta_0$$ and hence:
+where we introduced $$\Ti \equiv \tan \thetai$$.
+Note that, taking $$T = 0$$ (i.e., $$t = 0$$) in the equation above, we get to:
 
 $$
-\frac{u_0}{c} = \frac{T_0}{\sqrt{1 + T_0^2}}
+\frac{\ui}{c} = \frac{\Ti}{\sqrt{1 + \Ti^2}}
 \Rightarrow
-T_0 = \frac{\gamma_0 u_0}{c}.
+\Ti = \frac{\gammai \ui}{c}.
 $$
 
 From \eqref{eq:sin_theta} we can compute $$\gamma = (1 - (u/c)^2)^{-1/2}$$:
 
 $$
-\gamma = \left[1 - \frac{(T + T_0)^2}{1 + (T + T_0)^2} \right]^{-1/2}
-= \sqrt{1 + (T + T_0)^2}
+\gamma = \left[1 - \frac{(T + \Ti)^2}{1 + (T + \Ti)^2} \right]^{-1/2}
+= \sqrt{1 + (T + \Ti)^2}
 $$
 
 We can integrate the velocity formula \eqref{eq:sin_theta} to obtain the position:
 
 $$
-x = \int_0^{t_0} u \, \mathrm{d}t =
-\frac{c^2}{a} \int_0^{T_0} \frac{u}{c} \, \mathrm{d}T
+x = \int_0^{\tf} u \, \mathrm{d}t =
+\frac{c^2}{a} \int_0^{\Tf} \frac{u}{c} \, \mathrm{d}T
 $$
 
 Changing variable of integration to $$\Theta$$ as above:
 
 $$
 x =
-\frac{c^2}{a} \int_{\theta_0}^{\theta}
+\frac{c^2}{a} \int_{\thetai}^{\theta}
   \frac{\sin \Theta}{\cos^2 \Theta} \, \mathrm{d}\Theta =
--\frac{c^2}{a} \int_{\cos \theta_0}^{\cos \theta}
+-\frac{c^2}{a} \int_{\cos \thetai}^{\cos \theta}
   \frac{\mathrm{d}\cos \Theta}{\cos^2 \Theta}
 $$
 
@@ -139,16 +150,16 @@ which gives:
 
 $$
 x =
-\frac{c^2}{a} \left( \frac{1}{\cos \theta} - \frac{1}{\cos \theta_0} \right).
+\frac{c^2}{a} \left( \frac{1}{\cos \theta} - \frac{1}{\cos \thetai} \right).
 $$
 
 From Eq. \eqref{eq:sin_theta} we deduce that
-$$\cos^{-1} \theta = \sqrt{1 + (T + T_0)^2} = \gamma$$
-and $$\cos^{-1} \theta_0 = \sqrt{1 + T_0^2} = \gamma_0$$. We thus have:
+$$\cos^{-1} \theta = \sqrt{1 + (T + \Ti)^2} = \gamma$$
+and $$\cos^{-1} \thetai = \sqrt{1 + \Ti^2} = \gammai$$. We thus have:
 
 $$
 \begin{equation*}
-x = \frac{c^2}{a} \left( \gamma - \gamma_0 \right)
+x = \frac{c^2}{a} \left( \gamma - \gammai \right)
 \end{equation*}
 $$
 
@@ -158,90 +169,93 @@ $$
 \bbox[lightyellow, 10px, border: 2px solid orange]{
 \begin{equation*}
 x(t) = \frac{c^2}{a} \left(
-  \sqrt{1 + \left(\frac{at}{c} + \frac{\gamma_0 u_0}{c}\right)^2} - \gamma_0 \right).
+  \sqrt{1 + \left(\frac{at}{c} + \frac{\gammai \ui}{c}\right)^2} - \gammai \right).
 \end{equation*}
 }
 $$
 
 This expression has a removable singularity in $$a = 0$$, which isn't well suited for numerical
 computation. We can solve the issue by multiplying the right hand side by
-$$(\gamma + \gamma_0)/(\gamma + \gamma_0)$$:
+$$(\gamma + \gammai)/(\gamma + \gammai)$$:
 
 $$
 \begin{eqnarray*}
-x & = & \frac{c^2}{a} \frac{\gamma^2 - \gamma_0^2}{\gamma + \gamma_0} \\
-& = & \frac{c^2}{a(\gamma + \gamma_0)}
-  \left[1 + \left(\frac{at}{c} + \frac{\gamma_0 u_0}{c}\right)^2 - \gamma_0^2\right]\\
-& = & \frac{a t^2 + 2 \gamma_0 u_0 \, t}{\gamma + \gamma_0}.
+x & = & \frac{c^2}{a} \frac{\gamma^2 - \gammai^2}{\gamma + \gammai} \\
+& = & \frac{c^2}{a(\gamma + \gammai)}
+  \left[1 + \left(\frac{at}{c} + \frac{\gammai \ui}{c}\right)^2 - \gammai^2\right]\\
+& = & \frac{a t^2 + 2 \gammai \ui \, t}{\gamma + \gammai}.
 \end{eqnarray*}
 $$
 
-Above, we used the identity: $$1 + \frac{\gamma_0^2 u_0^2}{c^2} - \gamma_0^2 = 0$$.
+Above, we used the identity: $$1 + \frac{\gammai^2 \ui^2}{c^2} - \gammai^2 = 0$$.
 
 In summary:
 
 $$
+\begin{equation}
 \bbox[lightyellow, 10px, border: 2px solid orange]{
-\begin{eqnarray*}
-\gamma(t) & = & \sqrt{1 + \left( \frac{at}{c} + \frac{\gamma_0 u_0}{c} \right)^2}, \\
-u(t) & = & \frac{at + \gamma_0 u_0}{\gamma(t)}, \\
-x(t) & = & \frac{a t^2 + 2 \gamma_0 u_0 \, t}{\gamma(t) + \gamma_0}.
-\end{eqnarray*}
+\begin{aligned}
+\gamma(t) & = \sqrt{1 + \left( \frac{at}{c} + \frac{\gammai \ui}{c} \right)^2}, \\
+u(t) & = \frac{at + \gammai \ui}{\gamma(t)}, \\
+x(t) & = \frac{a t^2 + 2 \gammai \ui \, t}{\gamma(t) + \gammai}.
+\end{aligned}
 }
+\label{eq:gamma_u_x_of_t}
+\end{equation}
 $$
 
-Note that $$\gamma(t = 0) = \gamma_0$$. Also, the formula for $$x(t)$$ reduces to
-$$x(t) = u_0 t$$ when $$a = 0$$ and to $$x(t) = a t^2 /2 + u_0 t$$ when $$\gamma(t) \approx 1$$.
+Note that $$\gamma(t = 0) = \gammai$$. Also, the formula for $$x(t)$$ reduces to
+$$x(t) = \ui t$$ when $$a = 0$$ and to $$x(t) = a t^2 /2 + \ui t$$ when $$\gamma(t) \approx 1$$.
 
 # Proper time parametrization
 
 If we call $$\tau(t)$$ the proper time, we have:
 
 $$
-\deriv{\tau}{t} = \frac{1}{\gamma} = \frac{1}{\sqrt{1 + (T + T_0)^2}},
+\deriv{\tau}{t} = \frac{1}{\gamma} = \frac{1}{\sqrt{1 + (T + \Ti)^2}},
 $$
 
 which can be integrated as follows:
 
 $$
-\tau = \int_0^{t} \frac{\mathrm{d}t}{\sqrt{1 + (T + T_0)^2}} =
-\frac{c}{a} \, \int_{T_0}^{T + T_0} \frac{\mathrm{d}W}{\sqrt{1 + W^2}},
+\tau = \int_0^{t} \frac{\mathrm{d}t}{\sqrt{1 + (T + \Ti)^2}} =
+\frac{c}{a} \, \int_{\Ti}^{T + \Ti} \frac{\mathrm{d}W}{\sqrt{1 + W^2}},
 $$
 
 We now change variable of integration to $$W = \sinh \phi$$:
 
 $$
 \frac{a \tau}{c} =
-\int_{\asinh T_0}^{\asinh (T + T_0)} \mathrm{d} w =
-\asinh (T + T_0) - \asinh T_0,
+\int_{\asinh \Ti}^{\asinh (T + \Ti)} \mathrm{d} w =
+\asinh (T + \Ti) - \asinh \Ti,
 $$
 
 Which gives:
 
 $$
-T + T_0 = \sinh \left( \frac{a \tau}{c} + \asinh T_0 \right).
+T + \Ti = \sinh \left( \frac{a \tau}{c} + \asinh \Ti \right).
 $$
 
 We now introduce the quantity $$w$$ defined as:
 
 $$
-w = \frac{a \tau}{c} + \asinh T_0 =
-\frac{a \tau}{c} + \atanh \frac{u_0}{c},
+w = \frac{a \tau}{c} + \asinh \Ti =
+\frac{a \tau}{c} + \atanh \frac{\ui}{c},
 $$
 
 where we have used the identity
-$$\asinh \frac{\gamma_0 u_0}{c} = \atanh \frac{u_0}{c}$$.
-We have $$T + T_0 = \sinh w$$ and $$\sqrt{1 + (T + T_0)^2} = \cosh w$$.
+$$\asinh \frac{\gammai \ui}{c} = \atanh \frac{\ui}{c}$$.
+We have $$T + \Ti = \sinh w$$ and $$\sqrt{1 + (T + \Ti)^2} = \cosh w$$.
 We can thus write:
 
 $$
 \bbox[lightyellow, 10px, border: 2px solid orange]{
 \begin{eqnarray*}
-w(\tau) & = & \frac{a \tau}{c} + \atanh \frac{u_0}{c}, \\
+w(\tau) & = & \frac{a \tau}{c} + \atanh \frac{\ui}{c}, \\
 \gamma(\tau) & = & \cosh w(\tau), \\
 \frac{u(\tau)}{c} & = & \tanh w(\tau) \\
-x(\tau) & = & \frac{c^2}{a} \left[ \cosh w(\tau) - \gamma_0 \right], \\
-t(\tau) & = & \frac{1}{a} \left[c \, \sinh w(\tau) - \gamma_0 u_0\right]. \\
+x(\tau) & = & \frac{c^2}{a} \left[ \cosh w(\tau) - \gammai \right], \\
+t(\tau) & = & \frac{1}{a} \left[c \, \sinh w(\tau) - \gammai \ui\right]. \\
 \end{eqnarray*}
 }
 $$
@@ -249,7 +263,7 @@ $$
 The formulas for $$x(t)$$ and $$u(t)$$ have a removable singularity
 at $$a = 0$$.
 I doubt this singularity can be removed as easily as done in the previous section.
-Take the case $$u_0 = 0$$, for example.
+Take the case $$\ui = 0$$, for example.
 We get $$t(\tau) = c \, \sinh (a \tau / c) / a$$. This can be rewritten as:
 $$t(\tau) = \tau \, \sinhc (a \tau/c)$$,
 where $$\sinhc$$ is the
@@ -259,3 +273,47 @@ of removing the singularity from $$\sinhc$$.
 
 We thus have to be a bit careful when numerically computing $$x(\tau)$$ and $$t(\tau)$$.
 For example, we could use a Taylor expansion in the vicinity of $$a = 0$$.
+
+# Final velocity as a boundary condition
+
+So far, we have written down the equations for hyperbolic motion assuming the position, velocity,
+and acceleration are known at an initial time $$t = 0$$ (or $$\tau = 0$$.)
+In certain cases, it is desirable to use a different set of boundary conditions.
+
+In this section we rewrite the formulas for hyperbolic motion in terms of a desired final velocity.
+In other words, we assume we are given the position and velocity at time $$t = 0$$ and
+the velocity at a later time $$t = T$$.
+
+We start from the velocity as in Eqs. \eqref{eq:gamma_u_x_of_t} and rewrite it as follows:
+
+$$
+\gamma(t) u(t) = \gammai \ui + at.
+$$
+
+This equation shows very clearly that the spatial component of the four-velocity, $$\gamma u$$,
+increases linearly with time. This allows to express the acceleration, $$a$$, in terms
+of the initial and final velocities:
+
+$$
+a = \frac{\gammaf \uf - \gammai \ui}{T}.
+$$
+
+In some cases, it may be a good idea to go a step further and introduce a new variable as follows:
+
+$$
+\omega(t) = \frac{\gamma(t) u(t)}{c}.
+$$
+
+The formulas for hyperbolic motion can now be reparametrised on $$\omega$$:
+
+$$
+\begin{equation*}
+\begin{aligned}
+\gamma(\omega) & = \sqrt{1 + \omega^2}, \\
+u(\omega) & = \frac{c\omega}{\gamma(\omega)}, \\
+x(\omega) & = cT \, \frac{\gamma(\omega) - \gammai}{\omegaf - \omegai}.
+\end{aligned}
+\end{equation*}
+$$
+
+This parametrisation can be useful to join two pieces of hyperbolic trajectory, for example.
