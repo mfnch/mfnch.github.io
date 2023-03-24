@@ -249,15 +249,18 @@ We have $$T + \Ti = \sinh w$$ and $$\sqrt{1 + (T + \Ti)^2} = \cosh w$$.
 We can thus write:
 
 $$
+\begin{equation}
 \bbox[lightyellow, 10px, border: 2px solid orange]{
-\begin{eqnarray*}
-w(\tau) & = & \frac{a \tau}{c} + \atanh \frac{\ui}{c}, \\
-\gamma(\tau) & = & \cosh w(\tau), \\
-\frac{u(\tau)}{c} & = & \tanh w(\tau) \\
-x(\tau) & = & \frac{c^2}{a} \left[ \cosh w(\tau) - \gammai \right], \\
-t(\tau) & = & \frac{1}{a} \left[c \, \sinh w(\tau) - \gammai \ui\right]. \\
-\end{eqnarray*}
+\begin{aligned}
+w(\tau) & = \frac{a \tau}{c} + \atanh \frac{\ui}{c}, \\
+\gamma(\tau) & = \cosh w(\tau), \\
+\frac{u(\tau)}{c} & = \tanh w(\tau) \\
+x(\tau) & = \frac{c^2}{a} \left[ \cosh w(\tau) - \gammai \right], \\
+t(\tau) & = \frac{1}{a} \left[c \, \sinh w(\tau) - \gammai \ui\right].
+\end{aligned}
 }
+\label{eq:gamma_u_x_of_tau}
+\end{equation}
 $$
 
 The formulas for $$x(t)$$ and $$u(t)$$ have a removable singularity

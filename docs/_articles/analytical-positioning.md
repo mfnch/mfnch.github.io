@@ -151,14 +151,24 @@ $$
 where we have introduced $$T = \ini{T} + \fin{T} = \fin{t} - \ini{t}$$.
 
 These equations represent different solutions for different choices of $$t_M$$.
-One possible choice of $$t_M$$ is $$(\ini{t} + \fin{t})/2$$,
+One possible choice of $$t_M$$ is:
+
+$$
+\begin{equation}
+\bbox[lightyellow, 10px, border: 2px solid orange]{
+t_M = \frac{\ini{t} + \fin{t}}{2},
+}
+\label{eq:tm_choice_middle}
+\end{equation}
+$$
+
 i.e. the mid-point between $$\ini{t}$$ and $$\fin{t}$$,
 which corresponds to $$\ini{T} = \fin{T} = T/2$$.
 This is probably the simplest choice of $$t_M$$ and makes the trajectory
 construction "time-symmetrical". In other words, the trajectory constructed
 by flipping $$\mathbf{R} \rightarrow -\mathbf{R}$$ goes from $$-\mathbf{R}$$
 to $$\mathbf{R}$$, following exactly the reversed path.
-This would not be the case, if we choose -- say -- $$t_M = (\ini{t} + \fin{t})/3$$.
+This would not be the case, if we chose -- say -- $$t_M = (\ini{t} + \fin{t})/3$$.
 It should be noted, however, that there may be other ways of choosing $$t_M$$,
 based on the initial conditions of the problem, that have the same time-reversal property.
 
@@ -199,6 +209,6 @@ The choice of $$\ini{t}$$ and $$\fin{t}$$ are not crucial to determine the shape
 Of course, they are crucial for determining the time parametrisation of the
 curve.
 
-The video below shows some of the features of the solution derived in this page.
+The video below shows some of the features of the solution derived above in this page.
 
 {% include youtube.html id='uSgLO3lU2Qs' %}
