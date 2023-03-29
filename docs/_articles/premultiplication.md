@@ -15,8 +15,8 @@ I will be brief in this post. My aim is to make one main point:
 You must pre-multiply your texture before loading it in the GPU memory if:
 
 - you are using one channel in the texture to signal that the information
-  in the other channels is absent and should be ignored when interpolating
-  across the texture or when computing mipmaps.
+  in the other channels is absent in some parts of the texture and should thus
+  be ignored when interpolating across the texture or when computing mipmaps.
 - you are doing any kind of linear filtering on the texture, such as interpolating or scaling.
   If you are probing the textures only at the texel centers, then you are likely to have
   no troubles at all.
@@ -49,6 +49,12 @@ not depend at all on the transparencies of the adjacent pixels, which is clearly
   <figcaption><strong>Figure:</strong> Non-premultiplied textures tend to be excessively dark
   around borders between full opacity and full transparency.</figcaption>
 </figure>
+
+Black borders between regions of full transparency and regions of full opacity are one
+of the main symptoms of not using pre-multiplied textures.
+Darkened borders occur because pixels that are fully transparent (and consequently have
+zero RGB or have normal fully along the z axis) end up contributing to the colors and
+normals of the border pixels.
 
 # What's the solution?
 
