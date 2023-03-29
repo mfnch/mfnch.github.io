@@ -28,6 +28,8 @@ $$
 \newcommand{\gammaa}{\gamma_{\mathrm{a}}}
 \newcommand{\deriv} [2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
 \newcommand{\gammai}{\gamma_{\mathrm{i}}}
+\newcommand{\vvX}{\mathbf{X}}
+\newcommand{\vvXi}{\mathbf{X}_{\mathrm{i}}}
 \newcommand{\vvUi}{\mathbf{U}_{\mathrm{i}}}
 \newcommand{\vvui}{\mathbf{u}_{\mathrm{i}}}
 \newcommand{\ui}{u_{\mathrm{i}}}
@@ -213,7 +215,7 @@ $$\uua_0' = \vvai' / \|\vvai'\| = \vvai' / a$$. We therefore
 conclude:
 
 \begin{equation}
-\betaa = \frac{1}{c \gammai a} \, \vvai \cdot \vvui.
+\betaa = \frac{1}{c \gammai a} \, \vvai \cdot \vvui = \frac{\aiz}{\gammai a}.
 \label{eq:betaa}
 \end{equation}
 
@@ -241,8 +243,8 @@ $$
       \frac{\gammai \vvui}{c} \, \sinh \frac{a\tau}{c}
     \right]\\
     t(\tau) & = \frac{c}{a} \left[
-      \gammai \, \sinh \frac{a\tau}{c} +
-      \betaa \gammai \, \cosh \frac{a\tau}{c} - \betaa \gammai
+      \betaa \gammai \, \left(  \cosh \frac{a\tau}{c} - 1\right) +
+      \gammai \, \sinh \frac{a\tau}{c}
     \right]
 \end{aligned}
 \label{eq:second_preliminary_3d_hypmot}
@@ -297,13 +299,14 @@ $$
 \begin{equation}
 \bbox[lightyellow, 10px, border: 2px solid orange]{
 \begin{aligned}
-\gamma(\tau) & =
-  \gammai \left[ \cosh \frac{a\tau}{c} + \betaa  \sinh \frac{a\tau}{c} \right]\\
 \frac{\vvu(\tau)}{c} & =
-  \frac{\frac{\vvai}{a} \, \sinh \frac{a\tau}{c} +
-        \frac{\gammai \vvui}{c} \, \cosh \frac{a\tau}{c}}{\gamma(\tau)}
+  \frac{\frac{\gammai \vvui}{c} \, \cosh \frac{a\tau}{c} +
+        \frac{\vvai}{a} \, \sinh \frac{a\tau}{c}}{\gamma(\tau)}\\
+\gamma(\tau) & =
+  \gammai \cosh \frac{a\tau}{c} + \gammai \betaa \sinh \frac{a\tau}{c}
 \end{aligned}
 }
+\label{eq:u_and_gamma_of_tau}
 \end{equation}
 $$
 
@@ -311,12 +314,47 @@ We can also easily obtain the spatial part of the four-acceleration, by deriving
 $$\gamma \vvu$$ by the proper time $$\tau$$:
 
 $$
+\begin{equation*}
+\bbox[lightyellow, 10px, border: 2px solid orange]{
+\begin{aligned}
+\vva(\tau) & =
+  \vvai \, \cosh \frac{a\tau}{c} + \frac{a \gammai \vvui}{c} \, \sinh \frac{a\tau}{c}\\
+a_0(\tau) & =
+  a \gammai \betaa \, \cosh \frac{a\tau}{c} +
+  a \gammai \, \sinh \frac{a\tau}{c}
+\end{aligned}
+}
+\end{equation*}
+$$
+
+# Four-vectors equations
+
+In this section we are going to rewrite the formulas derived in the previous
+sections in terms of the four-vectors $$\vvX = (\vvr,\,ct)$$,
+$$\vvU = (\gamma \vvu,\,\gamma c)$$, $$\vvA = (\vva,\,a_0)$$:
+
+$$
 \begin{equation}
-\vva(\tau) =
-  \vvai \, \cosh \frac{a\tau}{c} + \frac{a \, \gammai \vvui}{c} \, \sinh \frac{a\tau}{c}
-\nonumber
+\bbox[lightyellow, 10px, border: 2px solid orange]{
+\begin{aligned}
+\vvX(\tau) & =
+  \vvXi +
+  \frac{c^2 \vvAi}{a^2} \, \left(\cosh \frac{a\tau}{c} - 1\right) +
+  \frac{c\vvUi}{a} \, \sinh \frac{a\tau}{c},\\
+\vvU(\tau) & = \vvUi \cosh \frac{a\tau}{c} + \frac{c\vvAi}{a} \sinh \frac{a\tau}{c},\\
+\vvA(\tau) & = \vvAi \, \cosh \frac{a\tau}{c} + \frac{a \vvUi}{c} \, \sinh \frac{a\tau}{c},\\
+\end{aligned}
+}
 \end{equation}
 $$
+
+where $$a = \sqrt{\vvAi^2} = \sqrt{\vvai^2 - \aiz^2}$$.
+
+The formulas above are more elegant and compact than the ones we derived earlier.
+Also, they express all quantities in terms of two vectors that are Minkowsky-orthogonal
+between each other: the initial four-velocity, $$\vvUi$$, and initial four-acceleration,
+$$\vvAi$$. This is very useful to further manipulate these expressions, as we are going
+to see in the next sections.
 
 # Proper-time from coordinate-time
 
@@ -364,7 +402,7 @@ $$
   \betaa & = Q\,\sinh w_0 \\
 \end{aligned}
 \right.
-\nonumber
+\label{eq:w0_and_Q}
 \end{equation}
 $$
 
@@ -390,8 +428,51 @@ We can finally express $$\tau$$ as a function of $$t$$:
 \end{equation}
 
 Note that $$\sinh w_0 = \betaa / Q = \betaa \gammaa$$ and
-$$\cosh w_0 = 1/Q$$, therefore we can express $$w_0$$ in multiple ways:
+$$\cosh w_0 = 1/Q = \gammaa$$, therefore we can express $$w_0$$ in multiple ways:
 $$w_0 = \atanh \betaa = \asinh \betaa \gammaa = \acosh \gammaa$$.
 
 These expressions help to verify that $$\tau(t=0)$$ is zero,
 as also implied by Eq. \eqref{eq:preliminary_3d_hypmot}.
+
+We conclude this section by rewriting Eq. \eqref{eq:t_from_tau} in a way that
+is convenient for what we are going to do in the next section:
+
+\begin{equation}
+\sinh (w + w_0) = \frac{\gammaa}{\gammai} \frac{at}{c} + \betaa \gammaa.
+\label{eq:sinhwp}
+\end{equation}
+
+From the identity $$\cosh^2 x - \sinh^2 x = 1$$, we obtain:
+
+\begin{equation}
+\cosh (w + w_0) = \sqrt{1 +
+  \left(\frac{\gammaa}{\gammai} \frac{at}{c} + \betaa \gammaa\right)^2}.
+\label{eq:coshwp}
+\end{equation}
+
+# Coordinate-time parametrization
+
+The next easiest quantity to express in terms of $$t$$, after $$\tau(t)$$,
+is $$\gamma$$.
+
+We start from Eq. \eqref{eq:u_and_gamma_of_tau} and recall the definition of
+$$w_0$$ from Eqs. \eqref{eq:w0_and_Q}:
+
+$$
+\begin{eqnarray}
+\gamma(\tau) & = & \gammai Q \left( \cosh w_0 \cosh w + \sinh w_0 \sinh w \right)\nonumber\\
+ & = & \frac{\gammai}{\gammaa} \cosh (w + w_0).
+\label{eq:gamma_of_tau}
+\end{eqnarray}
+$$
+
+Using Eq. \eqref{eq:coshwp}:
+
+$$
+\begin{equation}
+\gamma(\tau) =
+  \sqrt{\left(\frac{\gammai}{\gammaa}\right)^2 +
+        \left(\frac{at}{c} + \betaa \gammai\right)^2}.
+\nonumber
+\end{equation}
+$$
