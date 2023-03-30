@@ -26,7 +26,7 @@ a chance of checking that what I am doing is correct, following the scientific s
   {% endif %}
 {% endfor %}
 
-# Games
+# Games and programming
 
 Here are some posts about video games and game programming:
 
