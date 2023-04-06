@@ -34,6 +34,7 @@ $$
 \newcommand{\vvui}{\mathbf{u}_{\mathrm{i}}}
 \newcommand{\ui}{u_{\mathrm{i}}}
 \newcommand{\vvAi}{\mathbf{A}_{\mathrm{i}}}
+\newcommand{\vvAf}{\mathbf{A}_{\mathrm{f}}}
 \newcommand{\vvai}{\mathbf{a}_{\mathrm{i}}}
 \newcommand{\aiz}{a_{\mathrm{i0}}}
 $$
@@ -243,7 +244,7 @@ $$
       \frac{\gammai \vvui}{c} \, \sinh \frac{a\tau}{c}
     \right]\\
     t(\tau) & = \frac{c}{a} \left[
-      \betaa \gammai \, \left(  \cosh \frac{a\tau}{c} - 1\right) +
+      \frac{\aiz}{a} \, \left(  \cosh \frac{a\tau}{c} - 1\right) +
       \gammai \, \sinh \frac{a\tau}{c}
     \right]
 \end{aligned}
@@ -286,11 +287,9 @@ This can be simplified to:
 
 $$
 \gamma^2 =
-  \gammai^2 \left[
-    \cosh^2 \frac{a\tau}{c} +
-    \betaa^2  \sinh^2 \frac{a\tau}{c} +
-    2 \cosh \frac{a\tau}{c} \, \betaa \sinh \frac{a\tau}{c}
-  \right]
+  \gammai^2 \cosh^2 \frac{a\tau}{c} +
+  \frac{\aiz^2}{a^2} \sinh^2 \frac{a\tau}{c} +
+  2 \frac{\gammai \aiz}{a} \, \cosh \frac{a\tau}{c} \sinh \frac{a\tau}{c}
 $$
 
 Finally,
@@ -303,7 +302,7 @@ $$
   \frac{\frac{\gammai \vvui}{c} \, \cosh \frac{a\tau}{c} +
         \frac{\vvai}{a} \, \sinh \frac{a\tau}{c}}{\gamma(\tau)}\\
 \gamma(\tau) & =
-  \gammai \cosh \frac{a\tau}{c} + \gammai \betaa \sinh \frac{a\tau}{c}
+  \gammai \cosh \frac{a\tau}{c} + \frac{\aiz}{a} \sinh \frac{a\tau}{c}
 \end{aligned}
 }
 \label{eq:u_and_gamma_of_tau}
@@ -319,15 +318,13 @@ $$
 \begin{aligned}
 \vva(\tau) & =
   \vvai \, \cosh \frac{a\tau}{c} + \frac{a \gammai \vvui}{c} \, \sinh \frac{a\tau}{c}\\
-a_0(\tau) & =
-  a \gammai \betaa \, \cosh \frac{a\tau}{c} +
-  a \gammai \, \sinh \frac{a\tau}{c}
+a_0(\tau) & = \aiz \, \cosh \frac{a\tau}{c} + a \gammai \, \sinh \frac{a\tau}{c}
 \end{aligned}
 }
 \end{equation*}
 $$
 
-# Four-vectors equations
+# Four-vector equations
 
 In this section we are going to rewrite the formulas derived in the previous
 sections in terms of the four-vectors $$\vvX = (\vvr,\,ct)$$,
@@ -345,13 +342,14 @@ $$
 \vvA(\tau) & = \vvAi \, \cosh \frac{a\tau}{c} + \frac{a \vvUi}{c} \, \sinh \frac{a\tau}{c},\\
 \end{aligned}
 }
+\label{eq:hyperbolic_fvec}
 \end{equation}
 $$
 
-where $$a = \sqrt{\vvAi^2} = \sqrt{\vvai^2 - \aiz^2}$$.
+where $$a = \sqrt{-\vvAi^2} = \sqrt{\vvai^2 - \aiz^2}$$.
 
 The formulas above are more elegant and compact than the ones we derived earlier.
-Also, they express all quantities in terms of two vectors that are Minkowsky-orthogonal
+Also, they express all quantities in terms of two vectors that are Minkowski-orthogonal
 between each other: the initial four-velocity, $$\vvUi$$, and initial four-acceleration,
 $$\vvAi$$. This is very useful to further manipulate these expressions, as we are going
 to see in the next sections.
