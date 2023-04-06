@@ -23,7 +23,7 @@ $$
 \newcommand{\vvc}{\mathbf{c}}
 \newcommand{\vvalpha}{\boldsymbol{\alpha}}
 \newcommand{\vvbeta}{\boldsymbol{\beta}}
-\newcommand{\uua}{\hat{\mathbf{a}}}
+\newcommand{\uuai}{\hat{\mathbf{a}}_{\mathrm{i}}}
 \newcommand{\betaa}{\beta_{\mathrm{a}}}
 \newcommand{\gammaa}{\gamma_{\mathrm{a}}}
 \newcommand{\deriv} [2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
@@ -147,8 +147,8 @@ $$
 \begin{equation}
 \left\{
   \begin{array}{rcl}
-    \vvr' & = & \uua_0'\,\frac{c^2}{a}\left(\cosh \frac{a\tau}{c} - 1 \right) \\
-    \frac{\vvu'}{c} & = & \uua_0'\,\tanh \frac{a\tau}{c}\\
+    \vvr' & = & \uuai'\,\frac{c^2}{a}\left(\cosh \frac{a\tau}{c} - 1 \right) \\
+    \frac{\vvu'}{c} & = & \uuai'\,\tanh \frac{a\tau}{c}\\
     t' & = & \frac{c}{a} \sinh \frac{a\tau}{c}
   \end{array}
 \right.
@@ -157,8 +157,8 @@ $$
 $$
 
 The acceleration $$a$$ is the norm of the proper acceleration:
-$$a = \|\vvai'\| = \sqrt{\vvAi^2} = \sqrt{\vvai^2 - \aiz^2}$$.
-Note that $$\uua_0' = \vvai' / a$$.
+$$a = \|\vvai'\| = \sqrt{-\vvAi^2} = \sqrt{\vvai^2 - \aiz^2}$$.
+Note that $$\uuai' = \vvai' / a$$.
 
 To obtain the expression of hyperbolic motion in the original frame
 we just have to apply the inverse of Eq. \eqref{eq:boost_to_zerov}
@@ -192,14 +192,14 @@ $$
       \gammai \, \sinh \frac{a\tau}{c} +
       \betaa \gammai \, \cosh \frac{a\tau}{c} - \betaa \gammai\right]\\
     \vvq & = &
-      \uua_0'\,  + \frac{\gammai - 1}{\beta^2} \betaa\,\frac{\vvui}{c} \\
+      \uuai'\,  + \frac{\gammai - 1}{\beta^2} \betaa\,\frac{\vvui}{c} \\
   \end{array}
 \right.
 \label{eq:preliminary_3d_hypmot}
 \end{equation}
 $$
 
-where we have introduced $$\betaa = \uua_0' \cdot \frac{\vvui}{c}$$
+where we have introduced $$\betaa = \uuai' \cdot \frac{\vvui}{c}$$
 and the constant vector $$\vvq$$.
 
 Let us now try to simplify Eq. \eqref{eq:preliminary_3d_hypmot}.
@@ -211,8 +211,8 @@ $$
   = \frac{1}{\gammai} \, \vvai \cdot \vvui.
 $$
 
-We now remember that $$\betaa = \uua_0' \cdot \vvui / c$$, where
-$$\uua_0' = \vvai' / \|\vvai'\| = \vvai' / a$$. We therefore
+We now remember that $$\betaa = \uuai' \cdot \vvui / c$$, where
+$$\uuai' = \vvai' / \|\vvai'\| = \vvai' / a$$. We therefore
 conclude:
 
 \begin{equation}
@@ -419,7 +419,7 @@ We can finally express $$\tau$$ as a function of $$t$$:
 \begin{equation}
 \bbox[lightyellow, 10px, border: 2px solid orange]{
 \tau(t) = \frac{c}{a} \left[
-\asinh \left(\betaa \gammaa + \frac{\gammaa at}{\gamma c} \right) - \atanh \betaa
+\asinh \left(\betaa \gammaa + \frac{\gammaa at}{\gammai c} \right) - \asinh \betaa \gammaa
 \right]
 \label{eq:tau_from_t}
 }
@@ -429,48 +429,48 @@ Note that $$\sinh w_0 = \betaa / Q = \betaa \gammaa$$ and
 $$\cosh w_0 = 1/Q = \gammaa$$, therefore we can express $$w_0$$ in multiple ways:
 $$w_0 = \atanh \betaa = \asinh \betaa \gammaa = \acosh \gammaa$$.
 
-These expressions help to verify that $$\tau(t=0)$$ is zero,
-as also implied by Eq. \eqref{eq:preliminary_3d_hypmot}.
-
-We conclude this section by rewriting Eq. \eqref{eq:t_from_tau} in a way that
-is convenient for what we are going to do in the next section:
-
-\begin{equation}
-\sinh (w + w_0) = \frac{\gammaa}{\gammai} \frac{at}{c} + \betaa \gammaa.
-\label{eq:sinhwp}
-\end{equation}
-
-From the identity $$\cosh^2 x - \sinh^2 x = 1$$, we obtain:
-
-\begin{equation}
-\cosh (w + w_0) = \sqrt{1 +
-  \left(\frac{\gammaa}{\gammai} \frac{at}{c} + \betaa \gammaa\right)^2}.
-\label{eq:coshwp}
-\end{equation}
+Note also that Eq. \eqref{eq:tau_from_t} is already sufficient to calculate position, velocity
+and acceleration as a function of $$t$$, but in the next section we will attempt to obtain
+simpler expressions, not requiring the inverse hyperbolic functions.
 
 # Coordinate-time parametrization
 
-The next easiest quantity to express in terms of $$t$$, after $$\tau(t)$$,
-is $$\gamma$$.
-
-We start from Eq. \eqref{eq:u_and_gamma_of_tau} and recall the definition of
-$$w_0$$ from Eqs. \eqref{eq:w0_and_Q}:
-
-$$
-\begin{eqnarray}
-\gamma(\tau) & = & \gammai Q \left( \cosh w_0 \cosh w + \sinh w_0 \sinh w \right)\nonumber\\
- & = & \frac{\gammai}{\gammaa} \cosh (w + w_0).
-\label{eq:gamma_of_tau}
-\end{eqnarray}
-$$
-
-Using Eq. \eqref{eq:coshwp}:
+This section's first goal is to express $$\cosh w$$ and $$\sinh w$$ in terms of t.
+We start again from the equation for $$t(\tau)$$ in \eqref{eq:preliminary_3d_hypmot}:
 
 $$
 \begin{equation}
-\gamma(\tau) =
-  \sqrt{\left(\frac{\gammai}{\gammaa}\right)^2 +
-        \left(\frac{at}{c} + \betaa \gammai\right)^2}.
-\nonumber
+\sinh w + \betaa \, \cosh w = \frac{a t}{c \gammai} + \betaa \equiv \frac{D}{\gammaa},
+\label{eq:coshw_of_D}
 \end{equation}
 $$
+
+where we defined the shorthand quantity $$D = \gammaa(a t/(c \gammai) + \betaa)$$.
+Let's first solve for $$\cosh w$$. This can be done by isolating the term in $$\sinh w$$
+on one side of the equation, squaring it side-by-side and replacing
+$$\sinh^2 w = \cosh^2 w - 1$$:
+
+$$
+\cosh^2 w + 2 D \betaa \gammaa \, \cosh w - \gammaa^2 - D^2 = 0,
+$$
+
+We can now use the much loved [quadratic formula](https://en.wikipedia.org/wiki/Quadratic_formula)
+to find $$\cosh w$$. Once this is known, we can go back Eq. \eqref{eq:coshw_of_D} to
+also easily obtain $$\sinh w$$. The results all all collected below:
+
+$$
+\begin{equation}
+\bbox[lightyellow, 10px, border: 2px solid orange]{
+\begin{aligned}
+D(t) & = \frac{\gammaa}{\gammai} \frac{a t}{c} + \gammaa \betaa,\\
+\cosh w & = \gammaa \left(\sqrt{1 + D^2} - D \betaa \right),\\
+\sinh w & = \gammaa \left(D - \betaa \sqrt{1 + D^2}\right).
+\end{aligned}
+}
+\label{eq:coshw_and_sinhw_of_t}
+\end{equation}
+$$
+
+Problem solved! We can now use these formulas with Eqs. \eqref{eq:hyperbolic_fvec}
+to numerically compute four-position, four-velocity and four-acceleration given $$t$$,
+without having to compute any hyperbolic function.
