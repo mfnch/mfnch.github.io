@@ -10,6 +10,7 @@ $$
 \DeclareMathOperator{\acosh}{acosh}
 \DeclareMathOperator{\asinh}{asinh}
 \DeclareMathOperator{\atanh}{atanh}
+\DeclareMathOperator{\sinhc}{sinhc}
 \newcommand{\insR}{\mathbb{R}}
 \newcommand{\vvn}{\mathbf{n}}
 \newcommand{\vvr}{\mathbf{r}}
@@ -240,12 +241,12 @@ $$
 \begin{aligned}
     \vvr(\tau) & =
     \frac{c^2}{a} \left[
-      \frac{\vvai}{a} \, \left(\cosh \frac{a\tau}{c} - 1\right) +
-      \frac{\gammai \vvui}{c} \, \sinh \frac{a\tau}{c}
+      \frac{\gammai \vvui}{c} \, \sinh \frac{a\tau}{c} +
+      \frac{\vvai}{a} \, \left(\cosh \frac{a\tau}{c} - 1\right)
     \right]\\
     t(\tau) & = \frac{c}{a} \left[
-      \frac{\aiz}{a} \, \left(  \cosh \frac{a\tau}{c} - 1\right) +
-      \gammai \, \sinh \frac{a\tau}{c}
+      \gammai \, \sinh \frac{a\tau}{c} +
+      \frac{\aiz}{a} \, \left(  \cosh \frac{a\tau}{c} - 1\right)
     \right]
 \end{aligned}
 \label{eq:second_preliminary_3d_hypmot}
@@ -336,8 +337,8 @@ $$
 \begin{aligned}
 \vvX(\tau) & =
   \vvXi +
-  \frac{c^2 \vvAi}{a^2} \, \left(\cosh \frac{a\tau}{c} - 1\right) +
-  \frac{c\vvUi}{a} \, \sinh \frac{a\tau}{c},\\
+  \frac{c\vvUi}{a} \, \sinh \frac{a\tau}{c} +
+  \frac{c^2 \vvAi}{a^2} \, \left(\cosh \frac{a\tau}{c} - 1\right),\\
 \vvU(\tau) & = \vvUi \cosh \frac{a\tau}{c} + \frac{c\vvAi}{a} \sinh \frac{a\tau}{c},\\
 \vvA(\tau) & = \vvAi \, \cosh \frac{a\tau}{c} + \frac{a \vvUi}{c} \, \sinh \frac{a\tau}{c},\\
 \end{aligned}
@@ -456,15 +457,15 @@ $$
 
 We can now use the much loved [quadratic formula](https://en.wikipedia.org/wiki/Quadratic_formula)
 to find $$\cosh w$$. Once this is known, we can go back Eq. \eqref{eq:coshw_of_D} to
-also easily obtain $$\sinh w$$. The results all all collected below:
+also easily obtain $$\sinh w$$. The results are all collected below:
 
 $$
 \begin{equation}
 \bbox[lightyellow, 10px, border: 2px solid orange]{
 \begin{aligned}
 D(t) & = \frac{\gammaa}{\gammai} \frac{a t}{c} + \gammaa \betaa,\\
-\cosh w & = \gammaa \left(\sqrt{1 + D^2} - D \betaa \right),\\
-\sinh w & = \gammaa \left(D - \betaa \sqrt{1 + D^2}\right).
+\cosh \frac{a\tau}{c} & = \gammaa \left(\sqrt{1 + D^2} - D \betaa \right),\\
+\sinh \frac{a\tau}{c} & = \gammaa \left(D - \betaa \sqrt{1 + D^2}\right).
 \end{aligned}
 }
 \label{eq:coshw_and_sinhw_of_t}
@@ -474,3 +475,186 @@ $$
 Problem solved! We can now use these formulas with Eqs. \eqref{eq:hyperbolic_fvec}
 to numerically compute four-position, four-velocity and four-acceleration given $$t$$,
 without having to compute any hyperbolic function.
+
+There are, however, a couple of observations worth making before jumping
+straight into computing these formulas.
+
+First, the four-position formula in Eqs. \eqref{eq:hyperbolic_fvec}
+has a removable singularity in $$a = 0$$ coming from the term $$\sinh w / a$$
+and the term $$(\cosh w - 1) / a^2$$.
+The issue can be solved by expressing the four-position in terms of the $$\sinhc$$
+function:
+
+$$
+\vvX(\tau) =
+  \vvXi +
+  \vvUi \, \tau \sinhc \frac{a\tau}{c} +
+  \vvAi \, \tau^2 \frac{\sinhc^2 \frac{a\tau}{c}}{\cosh \frac{a\tau}{c} + 1}.
+$$
+
+$$\tau \, \sinhc w$$ can then be calculated as:
+
+$$
+\begin{equation*}
+\tau \, \sinhc w =
+\frac{c \sinh w}{a} = \frac{\gammaa}{c\gammai^2}
+  \frac{a t^2 + 2\betaa \gammai ct}{D + \betaa \sqrt{1 + D^2}}.
+\end{equation*}
+$$
+
+A second point to make is that $$\gamma(t)$$ can be calculated more easily by going back
+to Eq. \eqref{eq:u_and_gamma_of_tau} and rewriting it using the definition of $$w_0$$
+from Eqs. \eqref{eq:w0_and_Q}:
+
+$$
+\begin{equation}
+\begin{aligned}
+\gamma(\tau) & = \gammai Q \left( \cosh w_0 \cosh w + \sinh w_0 \sinh w \right)\nonumber\\
+ & = \frac{\gammai}{\gammaa} \cosh (w + w_0).
+\end{aligned}
+\label{eq:gamma_of_tau}
+\end{equation}
+$$
+
+$$\cosh (w + w_0)$$ can be expressed as a function of $$t$$.
+First, we obtain $$\sinh (w + w_0)$$ from Eq. \eqref{eq:t_from_tau}
+and then we use the identity $$\cosh^2 x - \sinh^2 x = 1$$:
+
+$$
+\begin{equation}
+\begin{aligned}
+\sinh (w + w_0) & = \frac{\gammaa}{\gammai} \frac{at}{c} + \betaa \gammaa,\\
+\cosh (w + w_0) & = \sqrt{1 +
+  \left(\frac{\gammaa}{\gammai} \frac{at}{c} + \betaa \gammaa\right)^2}.
+\end{aligned}
+\label{eq:sinh_cosh_wp}
+\end{equation}
+$$
+
+Eq. \eqref{eq:gamma_of_tau} can then be written as a function of $$t$$:
+
+$$
+\begin{equation}
+\gamma(t) =
+  \sqrt{\left(\frac{\gammai}{\gammaa}\right)^2 +
+        \left(\frac{at}{c} + \betaa \gammai\right)^2}.
+\nonumber
+\end{equation}
+$$
+
+$$
+\newcommand{\tauf}{\mathbf{\tau}_{\mathrm{f}}}
+\newcommand{\vvXf}{\mathbf{X}_{\mathrm{f}}}
+\newcommand{\vvUf}{\mathbf{U}_{\mathrm{f}}}
+\newcommand{\vvUo}{\mathbf{U}_{\perp}}
+$$
+
+# Final velocity as a boundary condition
+
+Similarly to what done in the one-dimensional case, we can rewrite the equations
+of hyperbolic motion in terms of a final velocity, rather than using the initial acceleration.
+In this section, we thus introduce $$\vvUf$$, the four-velocity at a time $$\tauf$$.
+We aim to replace $$\vvAi$$ with $$\vvUf$$ in Eqs. \eqref{eq:hyperbolic_fvec}.
+
+We start by rewriting the velocity equation \eqref{eq:hyperbolic_fvec} at time $$\tauf$$:
+
+$$
+\begin{equation}
+\vvUf = \vvUi \cosh \frac{a\tauf}{c} + \frac{c\vvAi}{a} \sinh \frac{a\tauf}{c}.
+\label{eq:uf_from_ui_and_ai}
+\end{equation}
+$$
+
+$$\vvUf$$ is the final velocity, which we assume is given as a boundary condition.
+We can use this equation to express $$\vvAi$$ in terms of $$\vvUf$$ and $$\vvUi$$:
+
+$$
+\begin{equation}
+\frac{c\vvAi}{a} = \frac{\vvUf - \vvUi \cosh \frac{a\tauf}{c}}{\sinh \frac{a\tauf}{c}}.
+\label{eq:ai_from_uf}
+\end{equation}
+$$
+
+We can now replace this expression into Eqs. \eqref{eq:hyperbolic_fvec}:
+
+$$
+\begin{equation}
+\bbox[lightyellow, 10px, border: 2px solid orange]{
+\begin{aligned}
+\vvX(\tau) & = \vvXi
+  + \frac{c}{a} \frac{\vvUf \left( \cosh \frac{a\tau}{c} - 1\right) +
+                      \vvUi \left( \cosh \frac{a\tauf}{c} - \cosh \frac{a(\tau - \tauf)}{c}\right)}
+                     {\sinh \frac{a\tauf}{c}},\\
+\vvU(\tau) & =
+  \frac{\vvUf \sinh \frac{a\tau}{c} - \vvUi \sinh \frac{a(\tau - \tauf)}{c}}
+       {\sinh \frac{a\tauf}{c}},\\
+\vvA(\tau) & = \frac{a}{c}
+  \frac{\vvUf \cosh \frac{a\tau}{c} - \vvUi \cosh \frac{a(\tau - \tauf)}{c}}
+       {\sinh \frac{a\tauf}{c}},
+\end{aligned}
+}
+\end{equation}
+$$
+
+These equations, however, have still traces of the initial acceleration, as they contain
+terms in $$a$$. We can tackle this issue multiplying \eqref{eq:uf_from_ui_and_ai}
+side-by-side by $$\vvUi$$ and obtain:
+
+$$
+\begin{equation}
+\bbox[lightyellow, 10px, border: 2px solid orange]{
+\vvUi \cdot \vvUf = c^2 \, \cosh \frac{a\tauf}{c},
+}
+\label{eq:a_from_ui_and_uf}
+\end{equation}
+$$
+
+where we used the orthogonality of velocity and acceleration, $$\vvUi \cdot \vvAi = 0$$.
+This expression, allows us to obtain $$a$$ from $$\vvUi$$ and $$\vvUf$$. It also allows us
+to express $$\vvAi$$ purely in terms of $$\vvUi$$ and $$\vvUf$$:
+
+$$
+\vvUo = \frac{c\vvAi}{a} = s(\tauf)\,
+\frac{\vvUf - \frac{\vvUi}{c^2} \, \vvUi \cdot \vvUf}
+     {\sqrt{1 - \left(\frac{\vvUi \cdot \vvUf}{c^2}\right)^2}},
+$$
+
+where $$s(\tauf)$$ is the sign of $$\tauf$$.
+
+Note that $$\vvUo$$ is a velocity. It has norm $$c$$ and is orthogonal to $$\vvUi$$.
+That's not too suprising: the acceleration $$\vvAi$$ must be orthogonal to $$\vvUi$$
+and must also be a linear combination of $$\vvUi$$ and $$\vvUf$$, as hyperbolic motion
+takes place in a plane.
+
+We conclude the section by noting that the position and acceleration at time $$\tau=\tauf$$
+can be calculated to be:
+
+$$
+\begin{equation}
+\bbox[lightyellow, 10px, border: 2px solid orange]{
+\begin{aligned}
+\vvXf & = \vvXi +
+  \frac{c}{a} \frac{\cosh \frac{a\tauf}{c} - 1}{\sinh \frac{a\tauf}{c}}
+    \left(\vvUi + \vvUf\right),\\
+\vvAf & = \frac{a}{c} \frac{\vvUf \cosh \frac{a\tauf}{c} - \vvUi}{\sinh \frac{a\tauf}{c}},
+\end{aligned}
+}
+\end{equation}
+$$
+
+or, taking advantage of Eq. \eqref{eq:a_from_ui_and_uf}:
+
+$$
+\begin{equation}
+\bbox[lightyellow, 10px, border: 2px solid orange]{
+\begin{aligned}
+\vvXf & = \vvXi +
+  \frac{\tauf}{\acosh \frac{\vvUi \cdot \vvUf}{c^2}}
+    \sqrt{\frac{\vvUi \cdot \vvUf - c^2}{\vvUi \cdot \vvUf + c^2}}
+    \left(\vvUi + \vvUf\right),\\
+\vvAf & = \frac{\acosh \frac{\vvUi \cdot \vvUf}{c^2}}{\tauf}
+ \frac{\vvUf \, (\vvUi \cdot \vvUf) - c^2 \vvUi}{\sqrt{(\vvUi \cdot \vvUf)^2 - c^4}}.
+\end{aligned}
+}
+\end{equation}
+$$
