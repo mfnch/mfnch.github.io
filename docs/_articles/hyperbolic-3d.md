@@ -310,8 +310,8 @@ $$
 \end{equation}
 $$
 
-We can also easily obtain the spatial part of the four-acceleration, by deriving
-$$\gamma \vvu$$ by the proper time $$\tau$$:
+We can also easily obtain the spatial and temporal parts of the four-acceleration,
+by deriving $$\gamma \vvu$$ and $$\gamma$$ by the proper time $$\tau$$:
 
 $$
 \begin{equation*}
@@ -324,6 +324,30 @@ a_0(\tau) & = \aiz \, \cosh \frac{a\tau}{c} + a \gammai \, \sinh \frac{a\tau}{c}
 }
 \end{equation*}
 $$
+
+# Alternative velocity formula
+
+Eqs. \eqref{eq:u_and_gamma_of_tau} can be reworked as follows:
+
+$$
+\begin{equation}
+\vvu(\tau) =
+  \vvui
++ \frac{c \vvai - \vvui \aiz}{a} \, \frac{\sinh \frac{a\tau}{c}}{\gamma(\tau)}.
+\label{eq:u_of_tau_alt}
+\end{equation}
+$$
+
+This equation shows that **the velocity changes within a straight line**.
+This can be seen better by rewriting the equation above as follows:
+
+$$
+\vvu(\tau) = \vvui + \vvu_{\mathrm{if}} \, f(\tau),
+$$
+
+where $$\vvu_{\mathrm{if}} = (c \vvai - \vvui \aiz)/a$$ is a constant vector and
+$$f(\tau) = (\sinh a\tau/c)/\gamma(\tau)$$ is a function with the property
+$$f(0) = 0$$.
 
 # Four-vector equations
 
@@ -367,10 +391,10 @@ of the coordinate-time, $$t$$. We can then plug this expression in the
 equations we derived earlier to replace the dependency on $$\tau$$
 with a dependency on $$t$$.
 
-Our start point is the equation for $$t(\tau)$$ in \eqref{eq:preliminary_3d_hypmot}:
+Our start point is the equation for $$t(\tau)$$ in \eqref{eq:second_preliminary_3d_hypmot}:
 
 $$
-t(\tau) = \frac{c \gammai}{a} \left(\sinh w + \betaa \, \cosh w - \betaa \right),
+t(\tau) = \frac{c}{a^2} \left[ a \gammai \, \sinh w + \aiz \cosh w - \aiz \right]
 $$
 
 where we introduced the shorthand $$w \equiv a\tau/c$$.
@@ -379,15 +403,15 @@ We need to invert this equation and write $$\tau$$ as a function of $$t$$.
 We note that, if we manage to rewrite the equation above as:
 
 $$
-t = \frac{c \gammai}{a} \, \left[
-  Q \left( \cosh w_0 \, \sinh w + \sinh w_0 \, \cosh w \right) - \betaa
+t = \frac{c}{a^2} \, \left[
+  Q \left( \cosh w_0 \, \sinh w + \sinh w_0 \, \cosh w \right) - \aiz
   \right],
 $$
 
 for some suitable choice of $$w_0$$ and $$Q$$, then we can further simplify this to:
 
 $$
-t = \frac{c \gammai}{a} \, \left[ Q \sinh (w + w_0) - \betaa \right],
+t = \frac{c}{a^2} \, \left[ Q \sinh (w + w_0) - \aiz \right],
 $$
 
 and from this we can easily proceed with the inversion.
@@ -397,25 +421,28 @@ $$
 \begin{equation}
 \left\{
 \begin{aligned}
-  1 & = Q\,\cosh w_0 \\
-  \betaa & = Q\,\sinh w_0 \\
+  a \gammai & = Q\,\cosh w_0 \\
+  \aiz & = Q\,\sinh w_0 \\
 \end{aligned}
 \right.
 \label{eq:w0_and_Q}
 \end{equation}
 $$
 
-which gives $$\tanh w_0 = \betaa$$ and $$Q^2 = 1 -  \betaa^2$$.
+which gives $$\tanh w_0 = \aiz/(a \gammai)$$ and $$Q^2 = a^2 \gammai^2 -  \aiz^2$$.
 We can write:
 
 \begin{equation}
-t = \frac{c \gammai}{a} \, \left[ \frac{1}{\gammaa} \, \sinh (w + w_0) - \betaa \right],
+t = \frac{c}{a^2} \, \left[ \sqrt{a^2 \gammai^2 - \aiz^2} \, \sinh (w + w_0) - \aiz \right],
 \label{eq:t_from_tau}
 \end{equation}
 
-where we introduced, $$\gammaa = 1/Q = 1/\sqrt{1 - \betaa^2}$$.
-
 We can finally express $$\tau$$ as a function of $$t$$:
+
+
+$$
+\frac{1}{\sqrt{a^2 \gammai^2 - \aiz^2}} \left(\frac{a^2 t}{c} + \aiz \right) = \sinh (w + w_0),
+$$
 
 \begin{equation}
 \bbox[lightyellow, 10px, border: 2px solid orange]{
@@ -546,6 +573,8 @@ $$
 \newcommand{\tauf}{\mathbf{\tau}_{\mathrm{f}}}
 \newcommand{\vvXf}{\mathbf{X}_{\mathrm{f}}}
 \newcommand{\vvUf}{\mathbf{U}_{\mathrm{f}}}
+\newcommand{\vvuf}{\mathbf{u}_{\mathrm{f}}}
+\newcommand{\gammaf}{\gamma_{\mathrm{f}}}
 \newcommand{\vvUo}{\mathbf{U}_{\perp}}
 $$
 
@@ -593,6 +622,7 @@ $$
        {\sinh \frac{a\tauf}{c}},
 \end{aligned}
 }
+\label{hyp3dwithuf}
 \end{equation}
 $$
 
@@ -625,6 +655,13 @@ Note that $$\vvUo$$ is a velocity. It has norm $$c$$ and is orthogonal to $$\vvU
 That's not too suprising: the acceleration $$\vvAi$$ must be orthogonal to $$\vvUi$$
 and must also be a linear combination of $$\vvUi$$ and $$\vvUf$$, as hyperbolic motion
 takes place in a plane.
+
+Similarly, we can also rewrite Eq. \eqref{eq:u_of_tau_alt} in terms of
+the final velocity, $$\vvuf$$.
+
+$$
+\vvu(\tau) = \vvui + \left(\vvuf - \vvui\right) \, \frac{\gammaf}{\gamma(\tau)}.
+$$
 
 We conclude the section by noting that the position and acceleration at time $$\tau=\tauf$$
 can be calculated to be:
