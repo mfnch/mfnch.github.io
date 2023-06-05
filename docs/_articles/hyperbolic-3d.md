@@ -660,7 +660,9 @@ Similarly, we can also rewrite Eq. \eqref{eq:u_of_tau_alt} in terms of
 the final velocity, $$\vvuf$$.
 
 $$
-\vvu(\tau) = \vvui + \left(\vvuf - \vvui\right) \, \frac{\gammaf}{\gamma(\tau)}.
+\vvu(\tau) = \vvui +
+  \left(\vvuf - \vvui\right) \, \frac{\gammaf}{\gamma(\tau)} \,
+  \frac{\sinh \frac{a \tau}{c}}{\sinh \frac{a \tauf}{c}}.
 $$
 
 We conclude the section by noting that the position and acceleration at time $$\tau=\tauf$$
