@@ -6,7 +6,9 @@ date: 2022-12-19 18:19:00
 usemathjax: false
 ---
 
-In this page I will collect links to other video games or game frameworks about Special Relativity.
+In this page I will collect links to other video games, game frameworks and websites
+about Special and General Relativity.
+
 I sort all entries from the most recent to the oldest.
 
 # Other Special Relativity games or frameworks
@@ -25,3 +27,7 @@ I sort all entries from the most recent to the oldest.
 - "Designing a Computer Game to Teach Einstein's Theory of Relativity".
   This is an [oldish paper from 2007](https://ieeexplore.ieee.org/abstract/document/4293657).
   The advertised game is a variant of the “asteroid” arcade game.
+
+# Other relevant sites
+- [Relativity visualized](https://www.tempolimit-lichtgeschwindigkeit.de/) and
+  its [version in English](https://www.spacetimetravel.org)
