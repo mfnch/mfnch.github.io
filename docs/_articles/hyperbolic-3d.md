@@ -371,6 +371,18 @@ Using the identities $$\vvai^2 = a^2 + \aiz^2$$ and $$\vvui \cdot \vvai = c\aiz$
 derived earlier, it can be easily verified that the norm of this vector is $$c$$,
 as expected.
 
+Note that $$\vvu_{\mathrm{if}}$$ can be thought as the vector of norm $$c$$ having
+direction along the following vector:
+
+$$
+\vvai - \frac{\vvui \aiz}{c} =
+\vvai - \frac{\vvui}{c} \, \left( \frac{\vvui}{c} \cdot \vvai \right).
+$$
+
+The right hand side of this expression very much resembles a projection of $$\vvai$$ in the
+direction orthogonal to $$\vvui$$. Actually, this resemblence becomes more and more a good
+approximation as $$\|\vvui\| \rightarrow c$$.
+
 # Four-vector equations
 
 In this section we are going to rewrite the formulas derived in the previous
