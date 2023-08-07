@@ -345,9 +345,31 @@ $$
 \vvu(\tau) = \vvui + \vvu_{\mathrm{if}} \, f(\tau),
 $$
 
-where $$\vvu_{\mathrm{if}} = (c \vvai - \vvui \aiz)/a$$ is a constant vector and
-$$f(\tau) = (\sinh a\tau/c)/\gamma(\tau)$$ is a function with the property
-$$f(0) = 0$$.
+where $$\vvu_{\mathrm{if}}$$ is a constant vector and $$f(\tau)$$ is a function
+with the properties $$f(0) = 0$$ and $$f(\tau) \rightarrow 1$$ for $$\tau \rightarrow +\infty$$.
+These two quantities are expressed as follows:
+
+$$
+\begin{equation}
+\begin{aligned}
+\vvu_{\mathrm{if}} & = \frac{c \vvai - \vvui \aiz}{a\gammai + \aiz},\\
+f(\tau) & = \frac{(a\gammai + \aiz) \sinh \frac{a\tau}{c}}{a\gamma(\tau)}.
+\end{aligned}
+\end{equation}
+$$
+
+We can thus deduce that:
+
+$$
+\vvu(\tau \rightarrow +\infty)
+\rightarrow
+\vvui + \vvu_{\mathrm{if}} =
+\frac{a\gammai \vvui + c \vvai}{a\gammai + \aiz}.
+$$
+
+Using the identities $$\vvai^2 = a^2 + \aiz^2$$ and $$\vvui \cdot \vvai = c\aiz$$
+derived earlier, it can be easily verified that the norm of this vector is $$c$$,
+as expected.
 
 # Four-vector equations
 
@@ -371,7 +393,7 @@ $$
 \end{equation}
 $$
 
-where $$a = \sqrt{-\vvAi^2} = \sqrt{\vvai^2 - \aiz^2}$$.
+where $$a = \sqrt{\lvert\vvAi^2\rvert} = \sqrt{\vvai^2 - \aiz^2}$$.
 
 The formulas above are more elegant and compact than the ones we derived earlier.
 Also, they express all quantities in terms of two vectors that are Minkowski-orthogonal
