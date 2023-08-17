@@ -10,12 +10,12 @@ usemathjax: true
 
 Contrary to classical mechanics, Special Relativity is very much a theory of particles and fields
 rather than a theory of rigid bodies. So why am I talking so much about rigid bodies on this site
-and on my videos? Well, one reason is that I am making a game and I want characters in my game to
+and on my videos? Well, one reason is that I am making a game and I want characters in the game to
 have spatial extension rather than being point-like particles moving in a field. But that's not the
 only reason. I believe **rigidity is a key mental tool for Special Relativity**. Consider my
 [video on the ladder paradox](https://youtu.be/vnWNKdY8JtQ), for example. I find it incredibly
-helpful to be able to say that the train is rigid and that passengers on the train don't see any
-deformation. It allows us to say for certain that the contraction we see when the train moves
+helpful to know that the train is rigid and that passengers on the train don't see any
+deformation. It allows us to know for certain that the contraction we see when the train moves
 is due to space-time effects, e.g. Lorentz contraction, rather than to a confusing mixture
 of different phenomena.
 
@@ -30,7 +30,8 @@ Take the picture below:
 
 ![moving rigid square](/assets/dynamics-latency-1.svg)
 
-It shows a Born-rigid body that so-far has been moving with constant velocity to the right.
+It shows a [Born-rigid body](https://en.wikipedia.org/wiki/Born_rigidity) that so-far has been
+moving with constant velocity to the right.
 The body has the shape of a square, but we see it squashed because it is moving and is thus
 affected by Lorentz contraction. We know, however, that an observer moving with the object would see
 an uncontracted square. (Objects appear Lorentz-contracted only when they move.
@@ -192,7 +193,7 @@ $$
 t_{\mathrm{CF}} = \frac{L}{c} \gamma.
 $$
 
-This is not great news. The time it takes for the collision information to reach the top front
+This is **not** great news. The time it takes for the collision information to reach the top front
 corner increases as the body's velocity gets closer and closer to the speed of light.
 This happens because the front corner is escaping from the propagating front. You can indeed easily
 prove that the corner would be unreachable if it was travelling exactly at the speed of light.
@@ -222,11 +223,14 @@ in [this video](https://youtube.com/shorts/LujkEuEgZmg?feature=share). Being abl
 the player to explore more extreme relativistic conditions (higher velocities).
 However, it is then problematic to contain the robot inside walls.
 
-Is this the end of the little robot? Absolutely no. I think there is an alternative way to achieve
-neat collisions and contain the motion of the robot: collision avoidance!
+Is this the end of the little robot? Absolutely no. Velocity-limitation is one option, but I
+think there is an alternative way to achieve neat collisions and contain the motion of the robot:
+collision avoidance!
 The idea is to do something completely different to what described in this article.
 The robot does not interact with the room's walls anymore. Instead, it features a state-of-the art
 navigation system that automatically brakes when getting too close to walls and other parts of the
 environment. To be honest, this solution is maybe more realistic than the one described in this
-article. I have been experimenting a bit with this approach and I think it can work, although
+article: a real robot moving at relativistic speed should do its utmost to avoid relativistic
+collisions as there is now way it can survive them.
+I have been experimenting a bit with this approach and I think it can work, although
 it will require some time to get right.
