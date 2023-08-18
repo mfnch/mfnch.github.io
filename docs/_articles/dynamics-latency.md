@@ -107,22 +107,6 @@ interesting, as moving objects tend to collide with stuff in front of them. It i
 scenario that gives smaller propagation times as most of the body moves towards
 the collision propagation front.
 
-$$
-\newcommand{\gammaB}{\gamma_{\mathrm{B}}}
-\newcommand{\vF}{\mathbf{F}}
-\newcommand{\va}{\mathbf{a}}
-\newcommand{\vr}{\mathbf{r}}
-\newcommand{\vvB}{\mathbf{v}}
-\newcommand{\vvB}{\mathbf{v}_{\mathrm{B}}}
-\newcommand{\uy}{\hat{\mathbf{y}}}
-\newcommand{\uv}{\hat{\mathbf{v}}}
-\newcommand{\uvB}{\hat{\mathbf{v}}_{\mathrm{B}}}
-\newcommand{\vnabla}{\mathbf{\nabla}}
-\newcommand{\deriv} [2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
-\newcommand{\ui}{u_{\mathrm{i}}}
-\newcommand{\uf}{u_{\mathrm{f}}}
-$$
-
 **Propagation to the back-center**
 
 Here we do a quick calculation to figure out how long it takes for light to propagate from
