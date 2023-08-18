@@ -44,9 +44,10 @@ absolutely necessary to avoid collisions. It is important that the player feels 
 
 # Classical version
 
-We assume the container is described by an SDF function, $$s(\vr)$$.
+We assume the container is described by an
+[SDF function](https://en.wikipedia.org/wiki/Signed_distance_function), $$s(\vr)$$.
 This function is positive inside the container, negative outside the container and zero
-at its boundaries.
+at its boundaries. The absolute value of the function tells us how far we are from the nearest wall.
 
 We can start by making an observation: the distance that a particle requires to change its velocity
 from $$v$$ to zero with an acceleration $$\amax$$ applied in the direction opposite to the velocity
