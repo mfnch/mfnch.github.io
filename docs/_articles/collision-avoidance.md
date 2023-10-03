@@ -51,8 +51,10 @@ at its boundaries. The absolute value of the function tells us how far we are fr
 
 We can start by making an observation: the distance that a particle requires to change its velocity
 from $$v$$ to zero with an acceleration $$\amax$$ applied in the direction opposite to the velocity
-is $$\smin(v) = v^2 / 2\amax$$. As long as $$s(\vr) \ge \smin$$ we are able to prevent the particle
-from crashing through the walls.
+is $$\smin(v) = v^2 / 2\amax$$. We can call $$\smin(v)$$ "braking distance" for the velocity $$v$$
+and acceleration $$\amax$$. As long as the current distance from the nearest wall is greater than
+the braking distance, i.e. $$s(\vr) \ge \smin$$, we are able to prevent the particle
+from crashing through any walls.
 The same condition can be expressed in terms of a maximum velocity: collisions can be prevented
 for sure if the velocity of the particle keeps below a maximum velocity,
 $$\vmax(\vr) = \sqrt{2\amax s(\vr)}$$.
@@ -77,7 +79,10 @@ $$
 When this happens, the algorithm applies a correction to the acceleration as follows:
 
 $$
+\begin{equation}
 \va = (1 - \lambda) \, \vap - \lambda \, \amax\,\uv,
+\label{eq:acc_blending}
+\end{equation}
 $$
 
 where $$\vap$$ is the input acceleration from the player, $$\uv = \vv / v$$ is a unit vector
@@ -96,6 +101,11 @@ Other formulas are possible. For example,
 $$
 \lambda = \frac{\frac{v^2}{\vmax^2} - \sigma^2}{1 - \sigma^2}.
 $$
+
+There is a final detail to take care of: Eq. \eqref{eq:acc_blending} can result in an acceleration
+that is greater than $$\amax$$. Take, for example, the case where $$\vap$$ is oriented
+along $$-\vv$$. This issue can be handled by introducing a final step where
+the acceleration is rescaled when its norm exceeds $$\amax$$.
 
 I provide a simple implementation of this algorithm
 in [Shadertoy](https://www.shadertoy.com/view/ct2cWc).
