@@ -8,15 +8,13 @@ layout: home
 This site collects ideas, experiments and thoughts emerging while developing
 a video game about Special Relativity.
 
-See the **[Articles section](articles)** for formulas an techniques I use in the game.
+**You can follow and support the project in many ways:**
 
-I am also sharing progress I made on the project on various social media:
-
-- [Day-to-day development on Twitter](https://www.twitter.com/relativisticg)
-- [Weekly progress updates and demos on Patreon](https://www.patreon.com/relativisticgame)
-- [Short videos on TikTok](https://www.tiktok.com/@relativisticgame) and
+- [Become a Patron](https://www.patreon.com/relativisticgame) to
+  closely follow the development and support the project financially
+- [Play game demos on itch.io](https://relativisticgame.itch.io/)
+- [Watch videos on selected topics on YouTube](https://www.youtube.com/@relativisticgame)
+  and [TikTok](https://www.tiktok.com/@relativisticgame)
+- [Follow me on on Twitter](https://www.twitter.com/relativisticg) and
   [Instagram](https://www.instagram.com/relativisticgame/)
-- [Longer videos on selected topics in YouTube](https://www.youtube.com/@relativisticgame)
-
-At the moment, there isn't much content in there, but this will slowly change over time
-as I make progress with this project.
+- Browse the **[Articles section](articles)** for formulas an techniques I use in the game.
