@@ -121,8 +121,9 @@ $$
 \right.
 $$
 
-The second equation gives $$c \aiz = \vvai \cdot \vvui$$, which can
-be substituted into the first equation:
+The second equation gives $$c \aiz = \vvai \cdot \vvui$$, which expresses the orthogonality
+of four-velocity and four-acceleration, $$\vvAi \cdot \vvUi = 0$$.
+This expression can  be substituted into the first equation:
 
 $$
 \vvai' = \vvai +
@@ -130,7 +131,7 @@ $$
       \frac{\gammai - 1}{\ui^2} - \frac{\gammai}{c^2} \right]
 $$
 
-which gives:
+and gives:
 
 \begin{equation}
 \vvai' = \vvai +
@@ -412,6 +413,61 @@ Also, they express all quantities in terms of two vectors that are Minkowski-ort
 between each other: the initial four-velocity, $$\vvUi$$, and initial four-acceleration,
 $$\vvAi$$. This is very useful to further manipulate these expressions, as we are going
 to see in the next sections.
+
+# Initial four-acceleration and proper-acceleration
+
+Eq. \eqref{eq:a} allows computing the proper acceleration, $$\vvai'$$, from the spatial component
+of the initial four-acceleration, $$\vvai$$.
+It is worth spending some more time discussing this expression as it provides some insight
+on the relation between the two quantities.
+
+In particular, Eq. \eqref{eq:a} can be rewritten as follows:
+
+$$
+\newcommand{\uuui}{\hat{\mathbf{u}}_{\mathrm{i}}}
+\vvai' =
+\frac{1}{\gammai} \, \left[\left(\vvai \cdot \uuui \right) \, \uuui \right] +
+\left[ \vvai - \left(\vvai \cdot \uuui\right) \, \uuui \right],
+$$
+
+where $$\uuui = \vvui/\ui$$ is the direction of the velocity, $$\vvui$$.
+The quantities in square brackets are the component of $$\vvai$$ parallel to $$\vvui$$
+and the component of $$\vvai$$ orthogonal to $$\vvui$$.
+We thus rewrite this expression as follows:
+
+$$
+\begin{equation}
+\vvai' = \frac{1}{\gammai} \, {\vvai}_{\|} + {\vvai}_{\perp}.
+\label{eq:ap_from_fa}
+\end{equation}
+$$
+
+When $$\vvui$$ is small, $$\gammai$$ is close to 1 and $$\vvai' \approx \vvai$$.
+At high speeds, however, the proper acceleration gets contracted along the direction
+of the velocity, if compared with the four-acceleration $$\vvai$$.
+The orthogonal part of the acceleration remains the same.
+We can summarize this observation as follows:
+
+$$
+\begin{eqnarray*}
+{\vvai'}_{\perp} & = & {\vvai}_{\perp},\\
+{\vvai'}_{\|} & = & {\vvai}_{\|} / \gammai.
+\end{eqnarray*}
+$$
+
+This also means we can easily write the spatial component of the four-acceleration, $$\vvai$$,
+in terms of the proper acceleration, $$\vvai'$$:
+
+$$
+\vvai = {\vvai'}_{\perp} + \gammai {\vvai'}_{\|}.
+$$
+
+Note that the time-part of the four-acceleration, $$\vvAi$$, can be recovered easily from the
+orthogonality of four-acceleration and four-velocity, $$\vvAi \cdot \vvUi = 0$$:
+
+$$
+\aiz = \frac{\vvai \cdot \vvui}{c} = \gammai \frac{\vvai' \cdot \vvui}{c}
+$$
 
 # Proper-time from coordinate-time
 
